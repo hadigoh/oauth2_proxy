@@ -2,7 +2,7 @@ FROM golang:1.10.2 AS builder
 
 WORKDIR /go/src/github.com/bitly/oauth2_proxy
 COPY . .
-# RUN dep ensure -vendor-only -v
+RUN dep ensure -vendor-only -v
 RUN CGO_ENABLED=0 GOOS=linux go build
 
 FROM alpine:latest
